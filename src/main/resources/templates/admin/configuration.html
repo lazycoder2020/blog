@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<header th:replace="admin/header::header-fragment"></header>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+    <!-- import header-fragment -->
+    <div th:replace="admin/header::header-nav"></div>
+    <!-- import sidebar-fragment -->
+    <div th:replace="admin/sidebar::sidebar-fragment(${path})"></div>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- Main content -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card card-primary card-outline">
+                            <div class="card-header">
+                                <h3 class="card-title">Website Information</h3>
+                            </div> <!-- /.card-body -->
+                            <div class="card-body">
+                                <form role="form" id="websiteForm">
+                                    <!-- text input -->
+                                    <div class="form-group">
+                                        <label>Web Name</label>
+                                        <input type="text" class="form-control" id="websiteName"
+                                               name="websiteName"
+                                               placeholder="Web Name" th:value="${configurations.get('websiteName')}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Web Description</label>
+                                        <input type="text" class="form-control" id="websiteDescription"
+                                               name="websiteDescription"
+                                               th:value="${configurations.get('websiteDescription')}"
+                                               placeholder="Web Description">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Web Logo</label>
+                                        <input type="text" class="form-control" id="websiteLogo"
+                                               name="websiteLogo" th:value="${configurations.get('websiteLogo')}"
+                                               placeholder="Web Logo">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>favicon.ico</label>
+                                        <input type="text" class="form-control" id="websiteIcon"
+                                               th:value="${configurations.get('websiteIcon')}"
+                                               name="websiteIcon"
+                                               placeholder="favicon.ico">
+                                    </div>
+                                    <div class="card-footer">
+                                        <button type="button" id="updateWebsiteButton" onsubmit="return false;"
+                                                class="btn btn-danger float-right">Confirm Update
+                                        </button>
+                                    </div>
+                                </form>
+                            </div><!-- /.card-body -->
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-primary card-outline">
+                            <div class="card-header">
+                                <h3 class="card-title">Personal Information</h3>
+                            </div> <!-- /.card-body -->
+                            <div class="card-body">
+                                <form role="form" id="userInfoForm">
+                                    <!-- input states -->
+                                    <div class="form-group">
+                                        <label class="control-label">Personal Icon</label>
+                                        <input type="text" class="form-control" id="yourAvatar"
+                                               name="yourAvatar" th:value="${configurations.get('yourAvatar')}"
+                                               placeholder="Personal Icon">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Personal Name</label>
+                                        <input type="text" class="form-control" id="yourName"
+                                               name="yourName" th:value="${configurations.get('yourName')}"
+                                               placeholder="Personal Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Personal Email</label>
+                                        <input type="email" class="form-control" id="yourEmail" name="yourEmail"
+                                               th:value="${configurations.get('yourEmail')}"
+                                               placeholder="Personal Email">
+                                    </div>
+                                    <div class="card-footer">
+                                        <button type="button" id="updateUserInfoButton" onsubmit="return false;"
+                                                class="btn btn-danger float-right">Confirm Update
+                                        </button>
+                                    </div>
+                                </form>
+                            </div><!-- /.card-body -->
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-primary card-outline">
+                            <div class="card-header">
+                                <h3 class="card-title">Footer Information</h3>
+                            </div> <!-- /.card-body -->
+                            <div class="card-body">
+                                <form role="form" id="footerForm">
+                                    <!-- input states -->
+                                    <div class="form-group">
+                                        <label class="control-label">Footer About</label>
+                                        <input type="text" class="form-control" id="footerAbout"
+                                               name="footerAbout" th:value="${configurations.get('footerAbout')}"
+                                               placeholder="About">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Footer About S/N</label>
+                                        <input type="text" class="form-control" id="footerICP" name="footerICP"
+                                               th:value="${configurations.get('footerICP')}"
+                                               placeholder="S/N">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Copy Right</label>
+                                        <input type="text" class="form-control" id="footerCopyRight"
+                                               name="footerCopyRight"
+                                               th:value="${configurations.get('footerCopyRight')}"
+                                               placeholder="Copy Right">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Powered By</label>
+                                        <input type="text" class="form-control" id="footerPoweredBy"
+                                               name="footerPoweredBy"
+                                               th:value="${configurations.get('footerPoweredBy')}"
+                                               placeholder="Powered By">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Powered By URL</label>
+                                        <input type="text" class="form-control" id="footerPoweredByURL"
+                                               name="footerPoweredByURL"
+                                               th:value="${configurations.get('footerPoweredByURL')}"
+                                               placeholder="Powered By URL">
+                                    </div>
+                                    <div class="card-footer">
+                                        <button type="button" id="updateFooterButton" onsubmit="return false;"
+                                                class="btn btn-danger float-right">Confirm Update
+                                        </button>
+                                    </div>
+                                </form>
+                            </div><!-- /.card-body -->
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <!-- import footer-fragment -->
+    <div th:replace="admin/footer::footer-fragment"></div>
+</div>
+<!-- jQuery -->
+<script th:src="@{/admin/plugins/jquery/jquery.min.js}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script th:src="@{/admin/plugins/jQueryUI/jquery-ui.min.js}"></script>
+<!-- Bootstrap 4 -->
+<script th:src="@{/admin/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<!-- AdminLTE App -->
+<script th:src="@{/admin/dist/js/adminlte.min.js}"></script>
+<!-- sweetalert -->
+<script th:src="@{/admin/plugins/sweetalert/sweetalert.min.js}"></script>
+<script th:src="@{/admin/dist/js/configuration.js}"></script>
+</body>
+</html>

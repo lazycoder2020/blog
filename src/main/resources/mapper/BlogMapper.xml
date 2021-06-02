@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blog.demo.dao.BlogMapper">
+    <update id="deleteBatch">
+        update tb_blog
+        set is_deleted=1 where blog_id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </update>
+
+    <select id="selectByTagId" resultType="com.blog.demo.controller.vo.BlogListVO">
+        select * from tb_blog
+        where blog_id in
+        (select blog_id from tb_blog_tag_relation where tag_id = #{tagId} )
+        and blog_status =1 AND is_deleted=0
+        order by blog_id desc
+    </select>
+</mapper>
